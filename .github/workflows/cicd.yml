@@ -27,6 +27,10 @@ jobs:
       - name: Run tests
         working-directory: ./backend
         run: |
+          # Install package in development mode
+          pip install -e .
+          
+          # Run tests with explicit path
           python -m pytest tests/ -v
 
       - name: Build Docker image
