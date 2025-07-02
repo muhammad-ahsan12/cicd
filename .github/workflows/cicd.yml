@@ -27,7 +27,7 @@ jobs:
       - name: Run tests
         working-directory: ./backend
         run: |
-          pytest tests/
+          python -m pytest tests/ -v
 
       - name: Build Docker image
         run: docker build -t yourusername/fastfront:ci .
