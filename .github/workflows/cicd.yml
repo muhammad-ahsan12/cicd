@@ -27,14 +27,11 @@ jobs:
       - name: Run tests
         working-directory: ./backend
         run: |
-          # Install package in development mode
           pip install -e .
-          
-          # Run tests with explicit path
-          python -m pytest tests/ -v
+          PYTHONPATH=$PYTHONPATH:$GITHUB_WORKSPACE pytest tests/ -v
 
-      - name: Build Docker image
-        run: docker build -t yourusername/fastfront:ci .
+            - name: Build Docker image
+              run: docker build -t yourusername/fastfront:ci .
 
   # Continuous Deployment (Only runs on main branch)
   cd:
